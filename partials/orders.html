@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+               <input type="text" class="form-control" placeholder="szukaj..." ng-model="search">
+               <br>
+        </div>
+    </div>
+    
+    
+     <div class="row">
+     		<div class="col-sm-12">
+             <div class="alert alert-info" ng-repeat="order in orders | filter : search">
+            	<table class="table table-hover">
+                	<thead>
+                    	<tr>
+                        	<th>Id</th>
+                            <th>UserID</th>
+                            <th>Imie  wideo 15 min -------------- </th>
+                            <th>Email</th>
+                            <th>Opis</th>
+                            <th>Cena</th>
+                            <th>Ilość</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items | filter : search">
+                        	<td>{{$index}}</td>
+                            <td>{{order.uderId}}</td>
+                            <td>{{order.name}}</td>
+                            <td>{{order.email}}</td>
+                            <td>{{order.desc}}</td>
+                            <td>{{items.pricel}}</td>
+                            <td>{{order.qtyl}}</td>
+                            <td><a href="#/user/edit/{{$index}}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><button ng-click="delete(user, $index)" class="btn btn-danger btn-sm pull-right"><span class="glyphicon glyphicon-trash"></span></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                    
+                    
+                </div>
+           	</div>
+    </div>
+</div>
